@@ -1,0 +1,77 @@
+.home{
+  .banner {
+    background-color: #2fa360;
+    height: 325px;
+    margin-top: -1.5rem;
+  }
+
+  .toolbar {
+    height: 70px;
+    background-color: #ffffff;
+    padding: 10px 0;
+    margin-bottom: 1.5rem;
+    position: relative;
+
+    .avatar {
+      position: absolute;
+      bottom: -30px;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      width: 165px;
+    }
+
+    .nav {
+      .nav-link {
+        color: #333333;
+        font-size: 12px;
+        font-weight: bold;
+        text-align: center;
+
+        span {
+          font-size: 14px;
+        }
+      }
+    }
+
+    button {
+      margin-top: 5px;
+      float: right;
+    }
+  }
+  .profile{
+    .name{
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .email{
+      color: #999999;
+      font-stretch: initial;
+    }
+    .introduce{
+      margin: 20px 0;
+    }
+    .btn{
+      margin-top: 20px;
+    }
+  }
+  .postList{
+    .avatar{
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+    }
+    .name{
+      font-size: 16px;
+    }
+    .email{
+      color: #999999;
+      font-size: 14px;
+    }
+    .time{
+      color: #999999;
+      font-size: 14px;
+    }
+  }
+}

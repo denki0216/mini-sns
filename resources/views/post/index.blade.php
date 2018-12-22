@@ -25,7 +25,10 @@
                                    data-toggle="modal" data-target="#postEditModal">
                                     <i class="far fa-edit"></i>
                                 </a>
-                                <a href=""><i class="far fa-trash-alt"></i></a>
+                                <a href="" data-id="{{ $post->id }}" data-content="{{ $post->content }}"
+                                   data-toggle="modal" data-target="#postDeleteModal">
+                                    <i class="far fa-trash-alt"></i>
+                                </a>
                             </div>
                         @endif
                     </div>

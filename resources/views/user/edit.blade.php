@@ -44,13 +44,10 @@
 @stop
 
 @section('modal')
-    @include('partials.modal')
+    @include('partials.upload_modal')
 @stop
 
 @section('script')
-    <script>
-        $('#uploadModal').on('shown.bs.modal')
-    </script>
     <script>
         function showFileName (input) {
             var arrs = $(input).val().split('\\');

@@ -20,19 +20,19 @@
                             <nav class="nav justify-content-left">
                                 <a class="nav-link active" href="#">
                                     Post<br>
-                                    <span>20</span>
+                                    <span>{{ $post_count }}</span>
                                 </a>
                                 <a class="nav-link" href="#">
                                     Followed<br>
-                                    <span>20</span>
+                                    <span>999</span>
                                 </a>
                                 <a class="nav-link" href="#">
                                     Follower<br>
-                                    <span>20</span>
+                                    <span>999</span>
                                 </a>
                                 <a class="nav-link" href="#">
                                     Like<br>
-                                    <span>20</span>
+                                    <span>999</span>
                                 </a>
                             </nav>
                         </div>
@@ -55,7 +55,7 @@
                         at: {{ \Carbon\Carbon::parse($user->created_at)->toDateString() }}</div>
                     <button class="btn btn-block btn-primary">Post {!! '@' !!} {{ $user->name }}</button>
                 </div>
-                <div class="col-md-6 postList">
+                <div class="col-md-6">
                     @include('post.index')
                 </div>
                 <div class="col-md-3">

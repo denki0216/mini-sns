@@ -18,6 +18,7 @@ Route::get('/', function () {
 //Route::post('/', 'PostController');
 Route::middleware(['auth'])->group(function (){
     Route::resource('/', 'PostController');
+    Route::put('/post/{id}/edit', 'PostController@update');
     Route::get('/user/{user}/edit', 'UserController@editProfile')->name('profile');
     Route::post('/user/{user}/edit', 'UserController@upload');
 });

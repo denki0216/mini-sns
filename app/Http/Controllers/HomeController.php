@@ -16,7 +16,10 @@ class HomeController extends Controller
     public function index($id)
     {
         $user = User::find($id);
-        $posts = $user->post;
-        return view('user.home',  ['user'=>$user, 'posts'=>$posts]);
+
+        $posts = $user->post()->orderBy('created_at', 'desc')->get();
+
+        $post_count = $user->post->count();
+        return view('user.home',  ['user'=>$user, 'posts'=>$posts, 'post_count'=>$post_count]);
     }
 }

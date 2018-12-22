@@ -77,7 +77,10 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::find($id);
+        $post->content = $request->get('content');
+        $post->save();
+        return redirect('/')->with('success', 'Edit success');
     }
 
     /**

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('js')
+    <script src="{{ asset('js/custom.js') }}" defer></script>
+@stop
+
 @section('content')
     <div class="home">
         @include('partials.home.header')

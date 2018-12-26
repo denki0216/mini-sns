@@ -19,12 +19,12 @@
                             @elseif($isFollowed=\App\User::isFollowed($user->id))
                                 <form action="/follow/{{ $user->id }}/cancel" method="post">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                    <button class="btn btn-outline-danger btn-sm">Unfollow</button>
+                                    <button class="btn btn-primary btn-sm follow-btn">Following</button>
                                 </form>
                             @else
                                 <form action="/follow/{{ $user->id }}" method="post">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                    <button type="submit" class="btn btn-success btn-sm">Follow</button>
+                                    <button type="submit" class="btn btn-outline-success btn-sm">Follow</button>
                                 </form>
                             @endif
                         </div>

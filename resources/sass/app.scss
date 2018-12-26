@@ -12,10 +12,32 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+body {
+  background-color: #e6ecf0;
+  #app{
+    position: relative;
+    .navbar-laravel {
+      background-color: #fff;
+      border-bottom: solid 1px #b9b9b9;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 101;
+    }
+    .container {
+      max-width: 1260px;
+    }
+    .sidebar-left, .sidebar-right, .main-center{
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+  }
 }
+
+
 //Custom
 @import 'home/home';
 @import "post_list/post_list";
+@import "main/main";
+@import "partials/who";

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostCreateRequest;
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Follow;
 
 class PostController extends Controller
 {
@@ -16,8 +18,17 @@ class PostController extends Controller
      */
     public function index()
     {
+        $following_count = Follow::where('follower', Auth::id())->count();
+        $followed_count = Follow::where('followed', Auth::id())->count();
         $posts = Post::orderBy('created_at', 'desc')->get();
-        return view('welcome', ['posts'=> $posts]);
+        $post_count = Auth::user()->post->count();
+        return view('welcome', [
+            'posts'=> $posts,
+            // 'users'=>$users,
+            'post_count'=>$post_count,
+            'following_count'=>$following_count,
+            'followed_count'=>$followed_count,
+        ]);
     }
 
     /**

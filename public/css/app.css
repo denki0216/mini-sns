@@ -15155,9 +15155,33 @@ a.text-dark:focus {
   }
 }
 
-.navbar-laravel {
+body {
+  background-color: #e6ecf0;
+}
+
+body #app {
+  position: relative;
+}
+
+body #app .navbar-laravel {
   background-color: #fff;
+  border-bottom: solid 1px #b9b9b9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 101;
+}
+
+body #app .container {
+  max-width: 1260px;
+}
+
+body #app .sidebar-left,
+body #app .sidebar-right,
+body #app .main-center {
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 .home .banner {
@@ -15167,7 +15191,7 @@ a.text-dark:focus {
 }
 
 .home .toolbar {
-  height: 70px;
+  height: 83px;
   background-color: #ffffff;
   padding: 10px 0;
   margin-bottom: 1.5rem;
@@ -15183,17 +15207,18 @@ a.text-dark:focus {
 
 .home .toolbar .nav .nav-link {
   color: #333333;
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 14px;
   text-align: center;
+  margin: 0 10px;
 }
 
 .home .toolbar .nav .nav-link span {
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .home .toolbar button {
-  margin-top: 5px;
+  margin-top: 12px;
   float: right;
 }
 
@@ -15213,6 +15238,45 @@ a.text-dark:focus {
 }
 
 .home .profile .btn {
+  margin-top: 20px;
+}
+
+.user-list .banner-xs {
+  height: 100px;
+  background-color: #2a9055;
+}
+
+.user-list .card-body {
+  position: relative;
+  padding-top: 10px;
+}
+
+.user-list .card-body .info-bar {
+  height: 28px;
+}
+
+.user-list .card-body .info-bar .btn {
+  width: 70px;
+}
+
+.user-list .card-body .avatar {
+  border-radius: 50%;
+  position: absolute;
+  top: -50px;
+}
+
+.user-list .card-body .name {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.user-list .card-body .email {
+  color: #999999;
+}
+
+.user-list .card-body .introduce {
+  height: 80px;
+  overflow: hidden;
   margin-top: 20px;
 }
 
@@ -15245,5 +15309,47 @@ a.text-dark:focus {
 
 .post-list .tools-auth a {
   margin-left: 10px;
+}
+
+.sidebar-left .banner-sm {
+  height: 80px;
+  background-color: #2a9055;
+}
+
+.sidebar-left .user-panel {
+  position: relative;
+  padding: 10px 20px;
+}
+
+.sidebar-left .user-panel .avatar {
+  border-radius: 50%;
+  position: absolute;
+  top: -45px;
+  left: 5px;
+}
+
+.sidebar-left .user-panel .count {
+  font-size: 18px;
+}
+
+.sidebar-left .user-panel h5 {
+  font-weight: bold;
+}
+
+.sidebar-left .user-panel i {
+  color: #999999;
+}
+
+.who .avatar {
+  border-radius: 50%;
+}
+
+.who .name {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.who i {
+  color: #999999;
 }
 

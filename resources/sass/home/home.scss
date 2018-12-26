@@ -6,7 +6,7 @@
   }
 
   .toolbar {
-    height: 70px;
+    height: 83px;
     background-color: #ffffff;
     padding: 10px 0;
     margin-bottom: 1.5rem;
@@ -24,18 +24,19 @@
     .nav {
       .nav-link {
         color: #333333;
-        font-size: 12px;
-        font-weight: bold;
+        font-size: 14px;
         text-align: center;
+        margin: 0 10px;
 
         span {
-          font-size: 14px;
+          font-size: 16px;
+          font-weight: bold;
         }
       }
     }
 
     button {
-      margin-top: 5px;
+      margin-top: 12px;
       float: right;
     }
   }
@@ -56,4 +57,38 @@
       margin-top: 20px;
     }
   }
+}
+.user-list{
+  .banner-xs{
+    height: 100px;
+    background-color: #2a9055;
+  }
+  .card-body{
+    position: relative;
+    padding-top: 10px;
+    .info-bar{
+      height: 28px;
+      .btn{
+        width: 70px;
+      }
+    }
+    .avatar{
+      border-radius: 50%;
+      position: absolute;
+      top: -50px;
+    }
+    .name{
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .email{
+      color: #999999;
+    }
+    .introduce{
+      height: 80px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+  }
+
 }

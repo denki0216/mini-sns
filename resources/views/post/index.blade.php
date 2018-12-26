@@ -3,8 +3,9 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-md-2">
-                    <a href="{{ '/user/'. $post->user->id . '/home' }}"><img class="img-fluid avatar"
-                                                                             src="{{ $post->user->avatar }}" alt=""></a>
+                    <a href="{{ '/user/'. $post->user->id . '/home' }}">
+                        <img class="img-thumbnail avatar" src="{{ $post->user->avatar }}" alt="">
+                    </a>
                 </div>
                 <div class="col-md-10">
                     <a href="{{ '/user/'. $post->user->id . '/home' }}"><strong

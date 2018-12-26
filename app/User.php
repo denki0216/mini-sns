@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Follow;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','avatar',
+        'name', 'email', 'password', 'avatar',
     ];
 
     /**
@@ -31,5 +33,43 @@ class User extends Authenticatable
     public function post()
     {
         return $this->hasMany('App\Post');
+    }
+
+    public function following()
+    {
+        return $this->belongsToMany(
+            self::class,
+            'follows',
+            'follower',
+            'followed'
+        )->withTimestamps();
+    }
+
+    public function followers()
+    {
+        return $this->belongsToMany(
+            self::class,
+            'follows',
+            'followed',
+            'follower'
+        )->withTimestamps();
+    }
+
+    public function followThisUser($user)
+    {
+        return $this->following()->toggle($user);
+    }
+
+    public static function isFollowed($user_id)
+    {
+        $follow_count = Follow::where([
+            'follower' => Auth::id(),
+            'followed' => $user_id,
+        ])->count();
+        if ($follow_count == 0){
+            return false;
+        }else{
+            return true;
+        }
     }
 }

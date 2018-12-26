@@ -16,13 +16,18 @@ Route::get('/', function () {
 });
 
 //Route::post('/', 'PostController');
-Route::middleware(['auth'])->group(function (){
+Route::middleware(['auth', 'get.users'])->group(function (){
     Route::resource('/', 'PostController');
     Route::put('/post/{id}/edit', 'PostController@update');
     Route::delete('/post/{id}', 'PostController@destroy');
     Route::get('/user/{user}/edit', 'UserController@editProfile')->name('profile');
     Route::post('/user/{user}/edit', 'UserController@upload');
+    Route::post('/follow/{followed_id}', 'FollowController@follow');
+    Route::post('/follow/{followed_id}/cancel', 'FollowController@follow');
+    Route::get('/user/{id}/home', 'HomeController@index')->name('home');
+    Route::get('/user/{id}/following', 'HomeController@following');
+    Route::get('/user/{id}/followed', 'HomeController@followed');
 });
 Auth::routes();
 
-Route::get('/user/{id}/home', 'HomeController@index')->name('home');
+

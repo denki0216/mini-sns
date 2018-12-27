@@ -16,11 +16,17 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $following_count = Follow::where('follower', Auth::id())->count();
         $followed_count = Follow::where('followed', Auth::id())->count();
-        $posts = Post::orderBy('created_at', 'desc')->get();
+        $posts = Post::orderBy('created_at', 'desc')->Paginate(10);
+        if ($request->ajax()) {
+            $view = view('post.index', compact('posts'))->render();
+            return response()->json(['html'=>$view]);
+        }
+
+
         $post_count = Auth::user()->post->count();
         return view('welcome', [
             'posts'=> $posts,

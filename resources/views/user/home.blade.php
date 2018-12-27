@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('js')
-    <script src="{{ asset('js/custom.js') }}" defer></script>
-@stop
-
 @section('content')
     <div class="home">
         @include('partials.home.header')
@@ -15,7 +11,10 @@
                 <div class="col-md-6">
                     @include('partials.success')
                     @include('partials.errors')
-                    @include('post.index')
+                    <ul class="list-group post-list" id="post-data">
+                        @include('post.index')
+                    </ul>
+                    @include('partials.loading')
                 </div>
                 <div class="col-md-3">
                     @include('partials/who_to_follow')
@@ -24,3 +23,8 @@
         </div>
     </div>
 @endsection
+
+@section('script')
+    <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('js/ajax.js') }}"></script>
+@stop

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('js')
+    <script src="{{ asset('js/custom.js') }}" defer></script>
+@stop
+
 @section('content')
     <div class="container">
         <div class="row">
@@ -10,11 +14,13 @@
                         <div class="row">
                             <div class="col-md-4 p-0">
                                 <div class="dropdown show">
-                                    <a href="#" id="dropdownAvatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a href="#" id="dropdownAvatar" data-toggle="dropdown" aria-haspopup="true"
+                                       aria-expanded="false">
                                         <img class="img-thumbnail avatar" src="{{ Auth::user()->avatar }}" alt="">
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownAvatar">
-                                        <a href="{{ url('/user/'.Auth::id().'/edit') }}" class="dropdown-item">Edit Avatar</a>
+                                        <a href="{{ url('/user/'.Auth::id().'/edit') }}" class="dropdown-item">Edit
+                                            Avatar</a>
                                     </div>
                                 </div>
 
@@ -31,7 +37,8 @@
                                         Post<br>
                                         <b class="count">{{ $post_count }}</b>
                                     </a>
-                                    <a class="nav-item mr-5 text-center" href="{{ url('/user/'.Auth::id().'/following') }}">
+                                    <a class="nav-item mr-5 text-center"
+                                       href="{{ url('/user/'.Auth::id().'/following') }}">
                                         Following<br>
                                         <b class="count">{{ $following_count }}</b>
                                     </a>
@@ -73,8 +80,10 @@
 
                     </card>
                 </div>
-
+                <ul class="list-group post-list" id="post-data">
                 @include('post.index')
+                </ul>
+                @include('partials.loading')
             </div>
             <div class="col-md-3 sidebar-right">
                 @include('partials.who_to_follow')
@@ -104,4 +113,5 @@
             $('#modalForm2').attr('action', '/post/' + id);
         });
     </script>
+    <script src="{{ asset('js/ajax.js') }}"></script>
 @stop

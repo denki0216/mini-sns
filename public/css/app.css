@@ -15340,6 +15340,16 @@ body #app .main-center {
   color: #999999;
 }
 
+.main-center .avatar-col {
+  padding-left: 5px;
+  padding-right: 0;
+}
+
+.main-center .avatar-col .avatar-post {
+  border-radius: 50%;
+  padding: 0;
+}
+
 .ajax-load {
   margin-top: 40px;
 }
@@ -15425,6 +15435,47 @@ body #app .main-center {
   }
 }
 
+#navbarSupportedContent .img-link {
+  padding: 0;
+}
+
+#navbarSupportedContent .img-link .avatar {
+  border-radius: 50%;
+  padding: 0;
+}
+
+#navbarSupportedContent .search {
+  position: relative;
+}
+
+#navbarSupportedContent .search input {
+  background-color: #eeeeee;
+  border-color: #e3e3e3;
+}
+
+#navbarSupportedContent .search a {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: #999999;
+}
+
+.post-btn {
+  width: 100px;
+}
+
+.form-control {
+  border-radius: 20px;
+}
+
+.btn {
+  border-radius: 25px;
+}
+
+.modal .btn {
+  width: 80px;
+}
+
 .who .avatar {
   border-radius: 50%;
 }
@@ -15436,5 +15487,10 @@ body #app .main-center {
 
 .who i {
   color: #999999;
+}
+
+.who .btn {
+  width: 70px;
+  margin-top: 5px;
 }
 

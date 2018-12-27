@@ -27,6 +27,7 @@ Route::middleware(['auth', 'get.users'])->group(function (){
     Route::get('/user/{id}/home', 'HomeController@index')->name('home');
     Route::get('/user/{id}/following', 'HomeController@following');
     Route::get('/user/{id}/followed', 'HomeController@followed');
+    Route::get('/post', 'PostController@showAll');
 });
 Auth::routes();
 

@@ -61,18 +61,18 @@
                 <div class="card mb-2">
                     <card class="card-body">
                         <div class="row">
-                            <div class="col-md-2">
-                                <img class="img-thumbnail" src="{{ Auth::user()->avatar }}" alt="">
+                            <div class="col-md-1 avatar-col">
+                                <img class="img-thumbnail avatar-post" src="{{ Auth::user()->avatar }}" alt="">
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-11">
                                 <form action="" method="post">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     <div class="form-group">
                                         <textarea class="form-control" name="content" cols="30"
                                                   placeholder="Say something"></textarea>
                                     </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-success" type="submit">Post it</button>
+                                    <div class="form-group text-right">
+                                        <button class="btn btn-success post-btn" type="submit">Post</button>
                                     </div>
                                 </form>
                             </div>
@@ -99,19 +99,6 @@
 @stop
 
 @section('script')
-    <script>
-        $('#postEditModal').on('show.bs.modal', function (e) {
-            content = $(e.relatedTarget).attr('data-content');
-            id = $(e.relatedTarget).attr('data-id');
-            $('#modalContent').html(content);
-            $('#modalForm').attr('action', '/post/' + id + '/edit');
-        });
-        $('#postDeleteModal').on('show.bs.modal', function (e) {
-            content = $(e.relatedTarget).attr('data-content');
-            id = $(e.relatedTarget).attr('data-id');
-            $('#modalContent2').html(content);
-            $('#modalForm2').attr('action', '/post/' + id);
-        });
-    </script>
+    <script src="{{ asset('js/edit_and_del_modal.js') }}"></script>
     <script src="{{ asset('js/ajax.js') }}"></script>
 @stop

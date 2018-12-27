@@ -12,8 +12,11 @@
                 <div class="modal-body">
                     <div class="custom-file">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
-                        <input type="file" class="custom-file" id="customFile" name="avatar" onchange="showFileName(this)">
+                        <input type="file" class="custom-file" id="customFile" name="avatar" onchange= "showFileName(this)" >
                         <label for="customFile" class="custom-file-label">Choose file</label>
+                    </div>
+                    <div class="photo-view" style="display: none;">
+                        <img src="" alt="">
                     </div>
                 </div>
                 <div class="modal-footer">

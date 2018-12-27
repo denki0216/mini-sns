@@ -16,11 +16,16 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, Post $post)
     {
         $following_count = Follow::where('follower', Auth::id())->count();
         $followed_count = Follow::where('followed', Auth::id())->count();
-        $posts = Post::orderBy('created_at', 'desc')->Paginate(10);
+        $posts = $post->whereIn('user_id', $request->user()->following()
+                                    ->pluck('users.id')
+                                    ->push($request->user()->id))
+                                    ->orderBy('created_at', 'desc')
+                                    ->Paginate(10);
+
         if ($request->ajax()) {
             $view = view('post.index', compact('posts'))->render();
             return response()->json(['html'=>$view]);
@@ -111,5 +116,19 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->delete();
         return redirect('/')->with('success', 'Delete success');
+    }
+
+    public function showAll(Request $request)
+    {
+        $posts = Post::orderBy('created_at', 'desc')->Paginate(10);
+
+        if ($request->ajax()) {
+            $view = view('post.index', compact('posts'))->render();
+            return response()->json(['html'=>$view]);
+        }
+
+        return view('post.all', [
+            'posts'=> $posts,
+        ]);
     }
 }

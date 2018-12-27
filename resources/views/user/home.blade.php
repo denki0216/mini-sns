@@ -24,7 +24,13 @@
     </div>
 @endsection
 
+@section('modal')
+    @include('partials.post_edit_modal')
+    @include('partials.postDeleteModal')
+@stop
+
 @section('script')
-    <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('js/edit_and_del_modal.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}" defer></script>
     <script src="{{ asset('js/ajax.js') }}"></script>
 @stop

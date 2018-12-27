@@ -53,6 +53,10 @@
             var arrs = $(input).val().split('\\');
             var filename = arrs[arrs.length-1];
             $(".custom-file-label").html(filename);
+
+            var file_val = $(input).val();
+            $(".photo-view>img").attr('src', file_val);
+            $(".photo-view").show();
         }
     </script>
 @stop

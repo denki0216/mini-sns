@@ -22,6 +22,7 @@ Route::middleware(['auth', 'get.users'])->group(function (){
     Route::delete('/post/{id}', 'PostController@destroy');
     Route::get('/user/{user}/edit', 'UserController@editProfile')->name('profile');
     Route::post('/user/{user}/edit', 'UserController@upload');
+    Route::put('/user/{user}/edit', 'UserController@store');
     Route::post('/follow/{followed_id}', 'FollowController@follow');
     Route::post('/follow/{followed_id}/cancel', 'FollowController@follow');
     Route::get('/user/{id}/home', 'HomeController@index')->name('home');

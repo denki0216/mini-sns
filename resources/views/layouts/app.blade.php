@@ -16,7 +16,7 @@
     {{--<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">--}}
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/imgareaselect-default.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/imgareaselect-animated.css') }}">
 </head>
 <body>
     <div id="app">
@@ -33,14 +33,6 @@
     <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     @include('partials.post_modal')
     <script src="{{ asset('js/jquery.imgareaselect.pack.js') }}"></script>
-    <script>
-        $(document).ready(function () {
-            $('#photo').imgAreaSelect({
-               handles: true,
-               // onSelectEnd: someFunction
-            });
-        })
-    </script>
     @yield('script')
 </body>
 </html>

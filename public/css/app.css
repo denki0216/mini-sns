@@ -15494,3 +15494,17 @@ body #app .main-center {
   margin-top: 5px;
 }
 
+.user-edit #avatar {
+  border: solid 1px #dddddd;
+  width: 100%;
+}
+
+.user-edit #preview {
+  border-radius: 50%;
+  border: 1px solid #dee2e6;
+}
+
+.user-edit .avatar {
+  border-radius: 50%;
+}
+

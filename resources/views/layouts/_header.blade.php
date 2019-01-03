@@ -41,10 +41,11 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ url("/user/".Auth::user()->id."/edit") }}">Edit Profile</a>
+                            <a class="dropdown-item" href="{{ url("/user/".Auth::user()->id."/edit") }}"><i class="far fa-edit"></i> Edit Profile</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                                <i class="fas fa-sign-out-alt"></i>
                                 {{ __('Logout') }}
                             </a>
 

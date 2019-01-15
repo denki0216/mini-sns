@@ -1,10 +1,12 @@
 function preview(img, selection){
     if (!selection.width || !selection.height)
         return;
-    var scaleX = 165 / selection.width;
-    var scaleY = 165 / selection.height;
-    var width = $('#avatar').width();
-    var height = $('#avatar').height();
+    var perview_width = $('#preview').width();
+    var perview_height = $('#preview').height();
+    var scaleX = perview_width / selection.width;
+    var scaleY = perview_height / selection.height;
+    var width = $(img).width();
+    var height = $(img).height();
 
     $('#preview img').css({
         width: Math.round(scaleX * width),
@@ -24,6 +26,7 @@ function preview(img, selection){
 $(document).ready(function () {
     var width = $('#avatar').width() - 1;
     var height = $('#avatar').height() - 1;
+    var banner_width = $('#banner').width() - 1;
 
     if (width <= height){
         var selectWidth = width;
@@ -50,6 +53,33 @@ $(document).ready(function () {
 
             var thumbnailWidth = $('#avatar').width();
             var thumbnailHeight = $('#avatar').height();
+
+            $('.crop-width').attr('value', cropWidth);
+            $('.crop-height').attr('value', cropHeight);
+            $('.crop-x').attr('value', cropX);
+            $('.crop-y').attr('value', cropY);
+            $('.thumbnail-width').attr('value', thumbnailWidth);
+            $('.thumbnail-height').attr('value', thumbnailHeight);
+        }
+    });
+
+    $('#banner').imgAreaSelect({
+        x1: 0,
+        y1: 0,
+        x2: banner_width,
+        y2: banner_width / 6,
+        aspectRatio: '6:1',
+        handles: true,
+        onInit: preview,
+        onSelectChange: preview,
+        onSelectEnd: function (img, selection) {
+            var cropWidth =selection.width;
+            var cropHeight = selection.height;
+            var cropX = selection.x1;
+            var cropY = selection.y1;
+
+            var thumbnailWidth = $('#banner').width();
+            var thumbnailHeight = $('#banner').height();
 
             $('.crop-width').attr('value', cropWidth);
             $('.crop-height').attr('value', cropHeight);

@@ -15186,7 +15186,7 @@ body #app .main-center {
 
 .home .banner {
   background-color: #2fa360;
-  height: 325px;
+  height: 320px;
   margin-top: -1.5rem;
 }
 
@@ -15500,11 +15500,81 @@ body #app .main-center {
 }
 
 .user-edit #preview {
-  border-radius: 50%;
   border: 1px solid #dee2e6;
 }
 
 .user-edit .avatar {
   border-radius: 50%;
+}
+
+.user-edit .banner-add {
+  position: relative;
+  height: 88px;
+  border: dashed 2px #b4b4b4;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.user-edit .banner-add .mask {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+.user-edit .banner-add .mask:hover {
+  background-color: #2fa360;
+}
+
+.user-edit .banner-add .mask span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.user-edit .banner-preview {
+  position: relative;
+  height: 88px;
+  border: dashed 2px #b4b4b4;
+  overflow: hidden;
+}
+
+.user-edit .banner-preview .mask {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+.user-edit .banner-preview .mask:hover {
+  background-color: #000000;
+  opacity: 0.3;
+}
+
+.user-edit .banner-preview span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #ffffff;
+  z-index: 100;
+}
+
+.user-edit .banner-preview img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 

@@ -17,20 +17,24 @@ class UserController extends Controller
 
     public function upload(Request $request)
     {
-        if (!$request->file('avatar')) {
+        if ($request->file('avatar')) {
+            $file_key = 'avatar';
+        } elseif ($request->file('banner')) {
+            $file_key = 'banner';
+        } else{
             return redirect("/user/" . Auth::id() . "/edit")->with('error', 'No file was selected.');
         }
-        $size = $request->file('avatar')->getSize();
-        $type = $request->file('avatar')->getMimeType();
+        $size = $request->file($file_key)->getSize();
+        $type = $request->file($file_key)->getMimeType();
         if ($type !== 'image/jpeg' && $type !== 'image/jpg' && $type !== 'image/gif' && $type !== 'image/png') {
             return redirect("/user/" . Auth::id() . "/edit")->with('error', 'Only jpg/jpeg/png/gif file is allowed to update.');
         }
         if ($size > 2097152) {
             return redirect("/user/" . Auth::id() . "/edit")->with('error', 'File size is over than 2MB.');
         }
-        $path = $request->file('avatar')->store('avatars', 'public');
+        $path = $request->file($file_key)->store($file_key . 's', 'public');
 
-        return redirect("/user/" . Auth::id() . "/edit")->with('path', '/storage/' . $path);
+        return redirect("/user/" . Auth::id() . "/edit")->with('path', '/storage/' . $path)->with('type', $file_key);
     }
 
     public function store(Request $request)
@@ -57,13 +61,23 @@ class UserController extends Controller
         $x = intval($crop_x / $divisor_x);
         $y = intval($crop_y / $divisor_y);
 
-        $img->crop($width, $height, $x, $y)->resize(165, 165);
+        if ($request->_method == 'patch') {
+            $resizeWidth = 1920;
+            $resizeHeight = 320;
+            $dbCol = 'banner';
+        } else {
+            $resizeWidth = 165;
+            $resizeHeight = 165;
+            $dbCol = 'avatar';
+        }
+
+        $img->crop($width, $height, $x, $y)->resize($resizeWidth, $resizeHeight);
         $img->save();
 
         $user = User::find(Auth::id());
-        $user->avatar = $path;
+        $user->$dbCol = $path;
         $user->save();
-        return redirect("/user/" . Auth::id() . "/edit")->with('success', 'change avatar success');
+        return redirect("/user/" . Auth::id() . "/edit")->with('success', 'change ' . $dbCol . ' success');
     }
 
 }

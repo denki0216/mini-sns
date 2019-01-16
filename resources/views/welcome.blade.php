@@ -9,7 +9,9 @@
         <div class="row">
             <div class="col-md-3 sidebar-left">
                 <div class="card">
-                    <div class="card-header banner-sm"></div>
+                    <div class="card-header banner-sm">
+                        <img class="img-fluid" src="{{ Auth::user()->banner }}" alt="">
+                    </div>
                     <div class="card-body user-panel">
                         <div class="row">
                             <div class="col-md-4 p-0">

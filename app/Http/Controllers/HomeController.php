@@ -35,7 +35,7 @@ class HomeController extends Controller
     {
         $this->initData($id);
 
-        $users = User::find($id)->following()->orderBy('created_at', 'desc')->Paginate(12);
+        $users = User::find($id)->following()->Paginate(12);
 
         if ($request->ajax()) {
             $view = view('partials.home.users', ['follow_users'=> $users])->render();
@@ -49,7 +49,7 @@ class HomeController extends Controller
     {
         $this->initData($id);
 
-        $users = User::find($id)->followers()->orderBy('created_at', 'desc')->Paginate(12);
+        $users = User::find($id)->followers()->Paginate(12);
 
         if ($request->ajax()) {
             $view = view('partials.home.users', ['follow_users'=> $users])->render();

@@ -2,7 +2,7 @@
     <div class="col-md-4 user-list">
         <div class="card mb-3">
             <div class="card-header banner-xs">
-                banner
+                <img class="img-fluid" src="{{ $user->banner }}" alt="">
             </div>
             <div class="card-body">
                 <div class="row">

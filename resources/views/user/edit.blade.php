@@ -81,7 +81,7 @@
                                         <div class="col-md-6">
                                             @if(Session::has('path') && Session::get('type') == 'banner')
                                                 <div id="preview"
-                                                     style="width: 517px; height: 86px; overflow: hidden">
+                                                     style="width: 517px; height: 137px; overflow: hidden">
                                                     <img id="preview-img" src="{{ Session::get('path') }}">
                                                 </div>
                                                 <form action="" method="post">

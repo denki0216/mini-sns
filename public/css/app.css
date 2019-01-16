@@ -15186,7 +15186,7 @@ body #app .main-center {
 
 .home .banner {
   background-color: #2fa360;
-  height: 320px;
+  height: 507px;
   margin-top: -1.5rem;
 }
 
@@ -15242,8 +15242,9 @@ body #app .main-center {
 }
 
 .user-list .banner-xs {
-  height: 100px;
+  height: 74px;
   background-color: #2a9055;
+  padding: 0;
 }
 
 .user-list .card-body {
@@ -15314,6 +15315,7 @@ body #app .main-center {
 .sidebar-left .banner-sm {
   height: 80px;
   background-color: #2a9055;
+  padding: 0;
 }
 
 .sidebar-left .user-panel {
@@ -15540,7 +15542,7 @@ body #app .main-center {
 
 .user-edit .banner-preview {
   position: relative;
-  height: 88px;
+  height: 137px;
   border: dashed 2px #b4b4b4;
   overflow: hidden;
 }

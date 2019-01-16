@@ -63,7 +63,7 @@ class UserController extends Controller
 
         if ($request->_method == 'patch') {
             $resizeWidth = 1920;
-            $resizeHeight = 320;
+            $resizeHeight = 507;
             $dbCol = 'banner';
         } else {
             $resizeWidth = 165;
